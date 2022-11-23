@@ -1,0 +1,14 @@
+{% extends 'devices/layout.html' %}
+
+{% block body %}
+    <div><a href="{% url 'devices:index' %}">&#8592; Back</a></dev>
+        
+        <form method="POST" action="{% url 'devices:create' %}">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+        
+            <input type="submit" value="Submit">
+        </form>
+
+{% endblock %}

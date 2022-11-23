@@ -1,0 +1,15 @@
+{% extends 'devices/layout.html' %}
+
+{% block body %}
+    <h1>Devices</h1>
+    <ul>
+        {% for device in devices%}
+            <li>
+                <a href="{% url 'devices:device' device.id %}">
+                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status : {{ device.status }} 
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'devices:create' %}">&#x2b; Create New Device</a>
+{% endblock %}

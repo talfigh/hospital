@@ -1,0 +1,11 @@
+{% extends 'devices/layout.html' %}
+
+{% block body %}
+    <a href="{% url 'devices:index' %}">&#8592; Back</a>
+    <h1>Device</h1>
+    <ul>
+            <li>
+                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status : {{ device.status }} 
+            </li>
+    </ul>
+{% endblock %}
