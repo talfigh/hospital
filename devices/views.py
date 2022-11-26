@@ -3,15 +3,29 @@ from .models import Device
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import Q
+
 
 from .forms import CreateForm
 
 # Create your views here.
 @login_required
 def index(request):
-    return render(request, "devices/index.html", {
-        "devices": Device.objects.all()
-    })
+    query = request.GET.get('q','')
+
+    if query:
+        #queryset = (Q(text__icontains=query))
+        results = Device.objects.filter(name__icontains=query).distinct()
+
+    else:
+       results = Device.objects.all()
+    return render(request, 'devices/index.html', {"devices": results, "search_input":query})
+
+#            return render(request, "devices/index.html", {
+#        "devices": Device.objects.all()
+#           "devices": results
+#    })
+
 
 def device(request, device_id):
     device = Device.objects.get(pk=device_id)
