@@ -3,7 +3,7 @@ from .models import Device
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.db.models import Q
+#from django.db.models import Q
 
 
 from .forms import CreateForm
@@ -23,10 +23,9 @@ def index(request):
 
 #            return render(request, "devices/index.html", {
 #        "devices": Device.objects.all()
-#           "devices": results
 #    })
 
-
+@login_required
 def device(request, device_id):
     device = Device.objects.get(pk=device_id)
     return render(request, "devices/device.html",{

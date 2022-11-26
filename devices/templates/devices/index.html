@@ -3,8 +3,8 @@
 {% block body %}
     <h1>Devices</h1>
     <form method='GET' action=".">
-        <input type="text" name="q" value="{{search_input}}"/>
-        <input type="submit"  value="Search"/>
+        <input type="text" name="q" value="{{search_input}}" placeholder="search by name"/>
+        <input type="submit" value="&#x1F50D;"/>
     </form>
     <ul>
         {% for device in devices%}
