@@ -1,0 +1,9 @@
+table.table-expandable tr:not("expandable"){
+    cursor: pointer
+}
+table.table-expandable .expandable{
+    display: none;
+}
+table.table-expandable .expandable.expanded{
+    display: table-row;
+}

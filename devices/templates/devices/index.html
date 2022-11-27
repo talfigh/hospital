@@ -1,19 +1,66 @@
-{% extends 'devices/layout.html' %}
+{% extends 'hospital/base.html' %}
+{% load static %}
 
 {% block body %}
-    <h1>Devices</h1>
-    <form method='GET' action=".">
-        <input type="text" name="q" value="{{search_input}}" placeholder="search by name"/>
-        <input type="submit" value="&#x1F50D;"/>
-    </form>
-    <ul>
-        {% for device in devices%}
-            <li>
-                <a href="{% url 'devices:device' device.id %}">
-                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status : {{ device.status }} 
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'devices:create' %}">&#x2b; Create New Device</a>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">دستگاه ها</li>
+    </ol>
+    <div class="container-fluid col-md-12">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-header">
+                    لیست دستگاه ها
+                    <a class="btn btn-success float-left" href="/devices/create">ایجاد دستگاه جدید</a>
+                </div>
+                <div class="card-body">
+                    <div class="col-md-12">
+                        {% comment %}<form method='GET' action=".">
+                            <input type="text" name="q" value="{{search_input}}" placeholder="search by name"/>
+                            <input type="submit" value="&#x1F50D;"/>
+                        </form>{% endcomment %}
+
+                        <table class="table table-striped table-bordered data-tables"
+                               style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>نام دستگاه</th>
+                                <th>مدل</th>
+                                <th>وضعیت</th>
+                                {% comment %}<th>تاریخ ایجاد</th>
+                                <th>تاریخ ویرایش</th>
+                                <th>وضعیت</th>{% endcomment %}
+                                <th>عملیات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for device in devices %}
+                                <tr data-value={{ device.id }}>
+                                    <td>{{ device.name }}</td>
+                                    <td>{{ device.model }}</td>
+                                    <td>{{ device.status }}</td>
+                                    {% comment %}<td class="jdate">{{ drug.created_at|date_string_to_jalali }}</td>
+                                    <td class="jdate">{{ drug.updated_at|date_string_to_jalali }}</td>
+                                    <td class="list-activation" data-value="{{ drug.is_active }}" data-active="{{ drug.id }}">{{ drug.is_active|show_activation }}</td>
+                                    {% endcomment %}
+                                    <td width="80px">
+                                        <div role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-primary  btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                عملیات
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <a class="dropdown-item" href="/device/edit/{{ drug.id }}">ویرایش</a>
+                                                {% comment %}<a style="cursor: pointer" class="dropdown-item list-active" data-url="/device/active" data-target="{{ drug.id }}">فعال/غیرفعال کردن</a>{% endcomment %}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
