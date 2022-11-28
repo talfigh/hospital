@@ -26,6 +26,8 @@
                                 <th>نام دستگاه</th>
                                 <th>مدل</th>
                                 <th>وضعیت</th>
+                                <th>گروه</th>
+                                <th>مارک</th>
                                 {% comment %}<th>تاریخ ایجاد</th>
                                 <th>تاریخ ویرایش</th>
                                 <th>وضعیت</th>{% endcomment %}
@@ -35,9 +37,11 @@
                             <tbody>
                             {% for device in devices %}
                                 <tr data-value={{ device.id }}>
-                                    <td>{{ device.name }}</td>
+                                    <td><a href="{% url 'devices:device' device.id %}"/>{{ device.name}}</td>
                                     <td>{{ device.model }}</td>
                                     <td>{{ device.status }}</td>
+                                    <td>{{ device.group }}</td>
+                                    <td>{{ device.brand }}</td>
                                     {% comment %}<td class="jdate">{{ drug.created_at|date_string_to_jalali }}</td>
                                     <td class="jdate">{{ drug.updated_at|date_string_to_jalali }}</td>
                                     <td class="list-activation" data-value="{{ drug.is_active }}" data-active="{{ drug.id }}">{{ drug.is_active|show_activation }}</td>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Device
+from .models import Device, DeviceName, ModelName
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
