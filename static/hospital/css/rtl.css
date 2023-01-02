@@ -61,7 +61,9 @@ body {
     font-family: "YekanNumbers", "iran_sans", Sans-Serif;
     font-size: 1.1rem
 }
-
+.sidebar{
+  background: #01562b;
+}
 .sidebar .nav-title {
     font-size: 1rem;
     font-weight: normal;
@@ -230,9 +232,6 @@ table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc::after
     height: 26px;
     margin: 0 10px;
 }
-.app-header .navbar-brand {
-    height: 40px;
-}
 .header-fixed .app-body {
     margin-top: 42px;
 }
@@ -253,14 +252,84 @@ table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc::after
 .card-header {
     padding: .4rem 1.25rem;
 }
-
+a {
+  color: #01562b;
+}
+a:hover {
+  color: #036232;
+}
+.sidebar{
+  background: #01562b;
+}
+.sidebar .nav-link:hover {
+  color: #fff;
+  background: #036232;
+}
 table.table-bordered.dataTable th {
     border-width: 0;
-    background: #409ec9;
+    background: #ccc29d;
     font-weight: normal;
-    color: #FFF;
+    color: #000000;
 }
-
+.card-header{
+    background: #ece3c9;
+}
+.btn-success {
+  color: #fff;
+  background-color: #a6913e;
+  border-color: #a6913e;
+}
+.btn-success:hover {
+  color: #fff;
+  background-color: #bea953;
+  border-color: #c4af5b;
+}
+.btn {
+  padding: .250rem .85rem;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #01454e;
+  border-color: #01454e;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #013b42;
+  border-color: #01343a;
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: #013b42;
+  border-color: #01343a;
+}
+.badge-danger {
+  color: #fff;
+  background-color: #947c00;
+}
+.pace .pace-progress {
+  background: #01454e;
+}
+.app-header .nav-item .nav-link .badge {
+  position: absolute;
+  top: 93%;
+  left: 7%;
+  margin-top: -14px;
+  margin-left: 0;
+  height: 22px;
+  opacity: 0.6;
+  width: 22px;
+}
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #ccc29d;
+  border-color: #ccc29d;
+}
+.dropdown-toggle::after {
+  margin-left: 0;
+  vertical-align: .1em;
+  margin-right: 0.3rem;
+}
 table.table-bordered.dataTable td {
     border-right-width: 0;
     border-left-width: 1px;
@@ -526,10 +595,6 @@ input::-moz-placeholder {
     position: absolute;
     top: calc(2.0625rem + 2px);
 }
-.badge-danger {
-    color: #fff;
-    background-color: #fb0200;
-}
 .badge {
     display: inline-block;
     padding: .45em .4em;
@@ -542,16 +607,6 @@ input::-moz-placeholder {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .25rem;
-}
-.app-header .nav-item .nav-link .badge {
-    position: absolute;
-    top: 93%;
-    left: 50%;
-    margin-top: -16px;
-    margin-left: 0;
-    height: 22px;
-    opacity: 0.6;
-    width: 22px;
 }
 .badge-pill {
     border-radius: 10rem;
@@ -620,7 +675,9 @@ html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .main, html[dir="rtl"] .sidebar-s
     cursor: pointer;
 }
 .app-header .navbar-brand {
-    width: 175px;
+    height: 40px;
+    background: #01454e;
+    width: 220px;
 }
 html[dir="rtl"] .sidebar {
     margin-right: -220px;

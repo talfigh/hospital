@@ -9,8 +9,8 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Hossein Bagherpour">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <link rel="shortcut icon" href="{% static 'hospital/img/favicon.ico' %}" type="image/vnd.microsoft.icon" />
-    <title>Emergency Management</title>
+    <link rel="shortcut icon" href="{% static 'hospital/img/favicon.png' %}" type="image/vnd.microsoft.icon" />
+    <title>بیمارستان های ارتش جمهوری اسلامی ایران</title>
     <!-- Icons-->
 
 
@@ -33,21 +33,6 @@
           href="{% static 'hospital/modules/datatable/dataTables.bootstrap4.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/modules/toaster/toastr.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/css/rtl.css' %}">
-    <!-- Global site tag (gtag.js) - Google Analytics-->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        // Shared ID
-        gtag('config', 'UA-118965717-3');
-        // Bootstrap ID
-        gtag('config', 'UA-118965717-5');
-    </script>
     <script src="{% static 'hospital/modules/jquery/dist/jquery.min.js' %}"></script>
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -56,9 +41,9 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{% static 'hospital/img/em.png' %}" width="160" height="32"
+        <img class="navbar-brand-full" src="{% static 'hospital/img/logo.png' %}" width="160" height="32"
              alt="Emergency Mannagement Logo">
-        <img class="navbar-brand-minimized" src="{% static 'hospital/img/em-small.png' %}" width="30" height="30"
+        <img class="navbar-brand-minimized" src="{% static 'hospital/img/logo.png' %}" width="30" height="30"
              alt="Emergency Mannagement Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">

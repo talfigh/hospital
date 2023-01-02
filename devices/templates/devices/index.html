@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block body %}
+    {% load extra %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item">دستگاه ها</li>
     </ol>
@@ -27,7 +28,8 @@
                                 <th>مدل</th>
                                 <th>وضعیت</th>
                                 <th>گروه</th>
-                                <th>مارک</th>
+                                <th>شرکت سازنده</th>
+                                <th>تاریخ ایجاد</th>
                                 {% comment %}<th>تاریخ ایجاد</th>
                                 <th>تاریخ ویرایش</th>
                                 <th>وضعیت</th>{% endcomment %}
@@ -42,11 +44,12 @@
                                     <td>{{ device.status }}</td>
                                     <td>{{ device.group }}</td>
                                     <td>{{ device.brand }}</td>
+                                    <td class="jdate">{{ device.data_created|date_string_to_jalali }}</td>
                                     {% comment %}<td class="jdate">{{ drug.created_at|date_string_to_jalali }}</td>
                                     <td class="jdate">{{ drug.updated_at|date_string_to_jalali }}</td>
                                     <td class="list-activation" data-value="{{ drug.is_active }}" data-active="{{ drug.id }}">{{ drug.is_active|show_activation }}</td>
                                     {% endcomment %}
-                                    <td width="80px">
+                                    <td width="95px">
                                         <div role="group">
                                             <button id="btnGroupDrop1" type="button" class="btn btn-primary  btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 عملیات

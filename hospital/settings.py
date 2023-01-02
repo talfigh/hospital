@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "captcha",
-    'django.forms'
+    'django.forms',
+    'devices.templatetags.extra'
 ]
 
 MIDDLEWARE = [
