@@ -1,0 +1,68 @@
+{% extends 'hospital/login.html' %}
+{% load static %}
+
+{% block body %}
+    <form method="post" data-parsley-validate>
+        {% csrf_token %}
+        <h1 class="text-center">سامانه مدیریت لوازم بیمارستان</h1>
+        <p class="text-muted text-center">ورود به بخش کاربران</p>
+        {{ form.non_field_errors }}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+            </div>
+            <div style="flex: auto;">
+                {{ form.username }}
+                {% if form.username.errors %}
+                    {{ form.username.errors }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="input-group mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="icon-lock"></i>
+                </span>
+            </div>
+            <div style="flex: auto;">
+                {{ form.password }}
+                {% if form.password.errors %}
+                    {{ form.password.errors }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="input-group mb-4">
+            <div style="flex: auto;">
+                <div>
+                    {{ form.captcha }}
+                </div>
+                {% if form.captcha.errors %}
+                    {{ form.captcha.errors }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {% comment %}<a class="pull-right" href="{{ settings.GLOBAL_SETTINGS.PUBLIC_URL }}">بازگشت به صفحه اصلی</a>{% endcomment %}
+                <button class="btn btn-primary px-4 pull-left" type="submit">ورود</button>
+            </div>
+            {% comment %}<div class="col-6 text-right">
+                <button class="btn btn-link px-0" type="button">Forgot password?</button>
+            </div>{% endcomment %}
+        </div>
+    </form>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $('.captcha-refresh').click(function (e) {
+            e.preventDefault();
+            $.getJSON("/captcha/refresh/", function (result) {
+                $('.captcha').attr('src', result['image_url']);
+                $('#id_captcha_0').val(result['key'])
+            });
+        });
+    </script>
+{% endblock %}

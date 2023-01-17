@@ -58,8 +58,10 @@ class Device(models.Model):
     status = models.ForeignKey(StatusName, on_delete=models.CASCADE, related_name="Sname", verbose_name= "وضعیت")
     group = models.ForeignKey(GroupName, on_delete=models.CASCADE, related_name="Gname",verbose_name = "گروه")
     brand = models.ForeignKey(BrandName, on_delete=models.CASCADE, related_name="Bname", verbose_name= "مارک")
-    data_created = models.DateTimeField(auto_now_add=True)
     regular_checks = models.PositiveIntegerField( verbose_name= "دوره های زمانی سرویس(برحسب ماه)")
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     
     def __str__(self):

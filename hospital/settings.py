@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "users",
+    "hospital",
     "devices.apps.DevicesConfig",
     "django.contrib.admin",
     "django.contrib.auth",

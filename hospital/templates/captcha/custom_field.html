@@ -1,0 +1,13 @@
+{% load i18n %}
+{% spaceless %}
+<div class="form-group">
+  <div class="form-group">
+    <div class="input-group mb-3 captcha-form-group">
+        <button class='captcha-refresh'><i class="fa fa-refresh"></i></button>
+      {% include "django/forms/widgets/multiwidget.html" %}
+      <img src="{{ image }}" alt="captcha" class="captcha" />
+
+    </div>
+  </div>
+</div>
+{% endspaceless %}

@@ -40,7 +40,16 @@ def create(request):
     form = CreateForm(request.POST or None)
 
     if form.is_valid():
-        form.save()
+        name = form.cleaned_data['name']
+        model = form.cleaned_data['model']
+        status = form.cleaned_data['status']
+        group = form.cleaned_data['group']
+        brand = form.cleaned_data['brand']
+        regular_checks = form.cleaned_data['regular_checks']
+        description = form.cleaned_data['description']
+        device = Device(name=name, model=model, status=status,group=group,brand=brand,
+                          regular_checks=regular_checks,description=description)
+        device.save()
         return HttpResponseRedirect(reverse("devices:index"))
 
     context['form'] = form
