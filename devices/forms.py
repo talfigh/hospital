@@ -1,5 +1,5 @@
 from django import forms
-from .models import Device, DeviceName, StatusName, BrandName, GroupName, ModelName
+from .models import Device, DeviceName, StatusName, BrandName, GroupName, ModelName, DeviceLog
 
 
 class CreateForm(forms.Form):
@@ -127,7 +127,30 @@ class CreateForm(forms.Form):
     )
 
 
-# class CreateForm(forms.ModelForm):
-#     class Meta:
-#         model = Device
-#         fields = '__all__'
+class LogForm(forms.Form):
+
+    status = forms.ModelChoiceField(
+        label='وضعیت دستگاه',
+        queryset=StatusName.objects.filter(),
+        required=True,
+        empty_label="لطفا انتخاب نمایید",
+        initial=None,
+        widget=forms.Select(
+            attrs={
+                "placeholder": "وضعیت دستگاه را انتخاب نمایید",
+                "class": "form-control"
+            }
+        )
+    )
+
+    description = forms.CharField(
+        label="توضیحات",
+        required=False,
+        widget=forms.Textarea(
+            attrs={
+                "placeholder": "توضیحات را وارد نمایید",
+                "class": "form-control",
+                "rows": "3",
+            }
+        )
+    )

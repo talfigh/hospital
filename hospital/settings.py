@@ -95,12 +95,12 @@ DATABASES = {
 
 #DATABASES = {
 #    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
+#        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'hospital',
-#        'USER': 'root',
+#        'USER': 'alirz',
 #        'PASSWORD': '',
 #        'HOST': '127.0.0.1',
-#        'PORT': '3306',
+#        'PORT': '5432',
 #    }
 #}
 

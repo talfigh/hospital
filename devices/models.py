@@ -1,4 +1,6 @@
 from django.db import models
+from users.models import Personnel
+from hospital.models import Hospital
 
 # Create your models here.
 class DeviceName(models.Model):
@@ -62,6 +64,7 @@ class Device(models.Model):
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, verbose_name= "بیمارستان")
     
     
     def __str__(self):
@@ -74,4 +77,13 @@ class Device(models.Model):
 
 
 
+class DeviceLog(models.Model):
+    device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name="logs", verbose_name= "لاگ" )
+    status = models.ForeignKey(StatusName, on_delete=models.CASCADE, verbose_name= "وضعیت") # kharaab, dardaste tamir, farsoode, serghat shode, keraye dade shode
+    address = models.CharField(max_length=64, blank=True, verbose_name= "آدرس")
+    name = models.CharField(max_length=64, blank=True, verbose_name= "نام")
+    phone_num= models.IntegerField(verbose_name="شماره تماس", blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    description = models.TextField(blank=True)
 

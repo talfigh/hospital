@@ -1,11 +1,40 @@
-{% extends 'devices/layout.html' %}
+{% extends 'hospital/base.html' %}
+{% load static %}
 
 {% block body %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"> {{ device.name }} </li>
+
+        <!-- Breadcrumb Menu-->
+        <li class="breadcrumb-menu d-md-down-none">
+            <div class="btn-group" role="group" aria-label="Button group">
+                <a class="btn" href="#">
+                    <i class="icon-settings"></i>  تنظیمات</a>
+            </div>
+        </li>
+    </ol>
+
     <a href="{% url 'devices:index' %}">&#8592; Back</a>
     <h1>Device</h1>
     <ul>
             <li>
-                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status : {{ device.status }} 
+                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status : {{ device.hospital.name }} 
             </li>
     </ul>
+    <div>
+        <form method="POST" action="{% url 'devices:create' %}">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+            
+                <input type="submit" value="Submit">
+    </div>
+    <ul>
+        {% for log in logs%}
+        <li>
+                status : {{ log.status }} | log id {{ log.id }}: name : {{ log.name }}
+        </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
