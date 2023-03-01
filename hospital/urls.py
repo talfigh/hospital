@@ -19,6 +19,7 @@ from django.template.defaulttags import url
 from django.urls import path, include
 
 from hospital.forms import CustomAuthenticationForm
+from users.views import logout_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -26,7 +27,7 @@ urlpatterns = [
     path("users/", include("users.urls")),
 
     path('accounts/login/', auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm), name='login'),
-    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('accounts/logout/', logout_view, name='logout'),
     path('accounts/password_change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
     path('accounts/password_change/done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
 

@@ -3,6 +3,8 @@
 
 {% block body %}
     <ol class="breadcrumb">
+        <li class="breadcrumb-item"> صفحه اصلی</li>
+        <li class="breadcrumb-item"> دستگاه ها</li>
         <li class="breadcrumb-item"> {{ device.name }} </li>
 
         <!-- Breadcrumb Menu-->
@@ -14,27 +16,64 @@
         </li>
     </ol>
 
-    <a href="{% url 'devices:index' %}">&#8592; Back</a>
-    <h1>Device</h1>
-    <ul>
-            <li>
-                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status : {{ device.hospital.name }} 
-            </li>
-    </ul>
-    <div>
-        <form method="POST" action="{% url 'devices:create' %}">
-                {% csrf_token %}
-                
-                {{ form.as_p }}
-            
-                <input type="submit" value="Submit">
+    <div class="container-fluid col-md-12">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-header">
+                    مشخصات دستگاه
+                </div>
+                <div class="card-body">
+                    <table>
+                        <tr></tr>
+                    </table>
+                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status
+                    : {{ device.status }}
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    تغییر وضعیت دستگاه
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'devices:create' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    تاریخچه وضعیت دستگاه
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered data-tables dataTable no-footer">
+                        <thead>
+                        <tr>
+                            <th>دستگاه</th>
+                            <th>وضعیت</th>
+                            <th>واگذار شده به</th>
+                            <th>تلفن</th>
+                            <th>تاریخ ایجاد</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in logs %}
+                                <tr>
+                                    <td>{{ log.device }}</td>
+                                    <td>{{ log.status }}</td>
+                                    <td>{{ log.name }}</td>
+                                    <td>{{ log.phone_num }}</td>
+                                    <td>{{ log.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <ul>
-        {% for log in logs%}
-        <li>
-                status : {{ log.status }} | log id {{ log.id }}: name : {{ log.name }}
-        </li>
-        {% endfor %}
-    </ul>
 
 {% endblock %}

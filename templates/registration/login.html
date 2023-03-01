@@ -57,12 +57,19 @@
 
 {% block script %}
     <script>
+        $("#id_captcha_1").attr("tabindex", 3);
         $('.captcha-refresh').click(function (e) {
             e.preventDefault();
             $.getJSON("/captcha/refresh/", function (result) {
                 $('.captcha').attr('src', result['image_url']);
                 $('#id_captcha_0').val(result['key'])
             });
+        });
+        $('form').keypress(function (e){
+            if (e.which === 13) {
+                e.preventDefault();
+                $('form').submit();
+            }
         });
     </script>
 {% endblock %}

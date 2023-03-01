@@ -13,7 +13,8 @@ class CustomAuthenticationForm(AuthenticationForm):
            attrs={
                "placeholder": "Username",
                "class": "form-control en",
-               "autocomplete": "off"
+               "autocomplete": "off",
+               "tabindex": "1"
            }
         ),
         required=True
@@ -25,7 +26,8 @@ class CustomAuthenticationForm(AuthenticationForm):
             attrs={
                 "placeholder": "Password",
                 "class": "form-control en",
-                "autocomplete": "off"
+                "autocomplete": "off",
+                "tabindex": "2"
             }
         ),
         required=True
