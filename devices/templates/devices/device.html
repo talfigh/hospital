@@ -36,7 +36,7 @@
                     تغییر وضعیت دستگاه
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{% url 'devices:create' %}">
+                    <form method="POST" action="{%url 'devices:device' device.id%}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <input type="submit" value="Submit">

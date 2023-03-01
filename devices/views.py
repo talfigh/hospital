@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import Device, DeviceName, ModelName
+from .models import Device, DeviceLog, DeviceName, ModelName
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from users.models import Personnel
 from hospital.models import Hospital
 from django.contrib.auth.models import User
-
+import datetime
 # from django.db.models import Q
 
 
@@ -14,7 +14,7 @@ from .forms import CreateForm, LogForm
 
 
 # Create your views here.
-@login_required
+#@login_required
 def index(request):
     if request.user.is_authenticated:
         query = request.GET.get('q', '')
@@ -30,14 +30,12 @@ def index(request):
 
         else:
             results = Device.objects.filter(hospital = hospital)
+
         return render(request, 'devices/index.html', {"devices": results, "search_input": query})
     else:
         return HttpResponseRedirect(reverse("login"))
 
 
-#            return render(request, "devices/index.html", {
-#        "devices": Device.objects.all()
-#    })
 
 @login_required
 def device(request, device_id):
@@ -47,11 +45,26 @@ def device(request, device_id):
     device = Device.objects.get(pk=device_id)
     
     context['form'] = form
+    
+
 
     if form.is_valid():
+        user_id = request.user.id
+        created_by = Personnel.objects.get(user=user_id)
+
         status = form.cleaned_data['status']
-        device.update(status = status)
-        return HttpResponseRedirect(reverse("devices:index"))
+        device.status =  status
+        device.save()
+
+        phone_num = form.cleaned_data['phone_num']
+        address = form.cleaned_data['address']
+        name = form.cleaned_data['name']
+        description = form.cleaned_data['description']
+        
+        log = DeviceLog(device=device,address=address, name=name,created_by= created_by, phone_num= phone_num, status=status, description=description)
+        log.save()
+
+        return HttpResponseRedirect(reverse("devices:device", args=(device_id,)))
 
     return render(request, "devices/device.html", {
         "device": device,

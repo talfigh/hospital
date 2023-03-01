@@ -142,6 +142,40 @@ class LogForm(forms.Form):
             }
         )
     )
+    
+    phone_num = forms.IntegerField(
+        label='شماره تماس',
+        required=False,
+        widget=forms.NumberInput(
+           attrs={
+               "placeholder": "لطفا شماره تماس را وارد کنید",
+               "class": "form-control",
+           }
+        )
+    )
+    
+    address = forms.CharField(
+        label='آدرس',
+        required=False,
+        widget=forms.TextInput(
+           attrs={
+               "placeholder": "لطفا آدرس را وارد کنید",
+               "class": "form-control",
+               "rows": "2",
+           }
+        )
+    )
+
+    name = forms.CharField(
+        label='نام',
+        required=False,
+        widget=forms.TextInput(
+           attrs={
+               "placeholder": "لطفا نام را وارد کنید",
+               "class": "form-control",
+           }
+        )
+    )
 
     description = forms.CharField(
         label="توضیحات",

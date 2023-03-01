@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     لیست دستگاه ها
-                    <a class="btn btn-success float-left" href="/create">ایجاد دستگاه جدید</a>
+                    <a class="btn btn-success float-left" href="/devices/create">ایجاد دستگاه جدید</a>
                 </div>
                 <div class="card-body">
                     <div class="col-md-12">
@@ -30,9 +30,6 @@
                                 <th>گروه</th>
                                 <th>شرکت سازنده</th>
                                 <th>تاریخ ایجاد</th>
-                                {% comment %}<th>تاریخ ایجاد</th>
-                                <th>تاریخ ویرایش</th>
-                                <th>وضعیت</th>{% endcomment %}
                                 <th>عملیات</th>
                             </tr>
                             </thead>
@@ -45,6 +42,7 @@
                                     <td>{{ device.group }}</td>
                                     <td>{{ device.brand }}</td>
                                     <td class="jdate">{{ device.created_at|date_string_to_jalali }}</td>
+
                                     {% comment %}<td class="jdate">{{ drug.created_at|date_string_to_jalali }}</td>
                                     <td class="jdate">{{ drug.updated_at|date_string_to_jalali }}</td>
                                     <td class="list-activation" data-value="{{ drug.is_active }}" data-active="{{ drug.id }}">{{ drug.is_active|show_activation }}</td>

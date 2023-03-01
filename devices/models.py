@@ -86,4 +86,8 @@ class DeviceLog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=True)
-
+    created_by = models.ForeignKey(Personnel, on_delete=models.CASCADE, verbose_name= "نام" )
+    
+    class Meta:
+        verbose_name = "لاگ"
+        verbose_name_plural = "لاگ ها"

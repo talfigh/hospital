@@ -17,13 +17,16 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.template.defaulttags import url
 from django.urls import path, include
+from devices.views import index
 
 from hospital.forms import CustomAuthenticationForm
 from users.views import logout_view
 
+app_name = "hospital"
 urlpatterns = [
+    path("",index),
     path("admin/", admin.site.urls),
-    path("",include("devices.urls")),
+    path("devices/",include("devices.urls")),
     path("users/", include("users.urls")),
 
     path('accounts/login/', auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm), name='login'),
