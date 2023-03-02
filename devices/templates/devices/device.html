@@ -23,27 +23,93 @@
                     مشخصات دستگاه
                 </div>
                 <div class="card-body">
-                    <table>
-                        <tr></tr>
+                    <table class="detail-table">
+                        <tr>
+                            <th>نام دستگاه</th>
+                            <td>{{ device.name }}</td>
+                            <th style="padding-right: 30px">مدل دستگاه</th>
+                            <td>{{ device.model }}</td>
+                        </tr>
+                        <tr>
+                            <th>وضعیت دستگاه</th>
+                            <td>{{ device.status }}</td>
+                            <th>شرکت سازنده</th>
+                            <td>{{ device.brand }}</td>
+                        </tr>
+                        <tr>
+                            <th>گروه دستگاه</th>
+                            <td>{{ device.group }}</td>
+                            <th>دوره های زمانی سرویس</th>
+                            <td>{{ device.regular_checks }}</td>
+                        </tr>
+                        <tr>
+                            <th>توضیحات</th>
+                            <td>{{ device.description }}</td>
+                        </tr>
                     </table>
-                    device {{ device.id }}: name : {{ device.name }} | model : {{ device.model }} | status
-                    : {{ device.status }}
                 </div>
             </div>
+            <form method="POST" action="{% url 'devices:device' device.id %}">
+                <div class="card">
+                    <div class="card-header">
+                        تغییر وضعیت دستگاه
+                    </div>
+                    <div class="card-body">
 
-            <div class="card">
-                <div class="card-header">
-                    تغییر وضعیت دستگاه
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="{%url 'devices:device' device.id%}">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <input type="submit" value="Submit">
-                    </form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-3 col-form-label">{{ form.status.label }}</label>
+                                    <div class="col-sm-6">
+                                        {{ form.status }}
+                                        {{ form.status.errors }}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-3 col-form-label">{{ form.phone_num.label }}</label>
+                                    <div class="col-sm-6">
+                                        {{ form.phone_num }}
+                                        {{ form.phone_num.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-3 col-form-label">{{ form.status.label }}</label>
+                                    <div class="col-sm-6">
+                                        {{ form.status }}
+                                        {{ form.status.errors }}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-3 col-form-label">{{ form.address.label }}</label>
+                                    <div class="col-sm-6">
+                                        {{ form.address }}
+                                        {{ form.address.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label">{{ form.description.label }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form.description }}
+                                        {{ form.description.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-success float-left">ارسال فرم</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
+            </form>
             <div class="card">
                 <div class="card-header">
                     تاریخچه وضعیت دستگاه
@@ -60,15 +126,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                            {% for log in logs %}
-                                <tr>
-                                    <td>{{ log.device }}</td>
-                                    <td>{{ log.status }}</td>
-                                    <td>{{ log.name }}</td>
-                                    <td>{{ log.phone_num }}</td>
-                                    <td>{{ log.created_at }}</td>
-                                </tr>
-                            {% endfor %}
+                        {% for log in logs %}
+                            <tr>
+                                <td>{{ log.device }}</td>
+                                <td>{{ log.status }}</td>
+                                <td>{{ log.name }}</td>
+                                <td>{{ log.phone_num }}</td>
+                                <td>{{ log.created_at }}</td>
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

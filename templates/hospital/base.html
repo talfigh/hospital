@@ -85,18 +85,18 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-title">بخش ها</li>
-                <li class="nav-item nav-dropdown">
+                <li class="nav-item nav-dropdown {% if request.path == "/" or request.path == "/devices" or request.path == "/devices/create/" %} open {% endif %}">
                     <a href="#" class="nav-link nav-dropdown-toggle">
                         <i class="nav-icon icon-menu"></i>دستگاه ها
                     </a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">
+                            <a class="nav-link {% if request.path == "/" or request.path == "/devices" %} active {% endif %}" href="/">
                                 <i class="nav-icon"></i>لیست دستگاه ها
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/devices/create">
+                            <a class="nav-link {% if request.path == "/devices/create/" %} active {% endif %}" href="/devices/create">
                                 <i class="nav-icon"></i>ایجاد دستگاه جدید
                             </a>
                         </li>

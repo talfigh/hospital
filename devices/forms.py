@@ -167,7 +167,7 @@ class LogForm(forms.Form):
     )
 
     name = forms.CharField(
-        label='نام',
+        label='نام تحویل گیرنده',
         required=False,
         widget=forms.TextInput(
            attrs={

@@ -691,3 +691,13 @@ html[dir="rtl"] .sidebar {
     font-size: 1rem;
     font-weight: normal;
 }
+.detail-table tr th{
+    padding-right: 20px;
+}
+.detail-table tr td{
+    padding: 20px 5px;
+}
+.sidebar .nav-link.active {
+  color: #fff;
+  background: #01454e;
+}
