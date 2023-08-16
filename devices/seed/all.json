@@ -1,0 +1,287 @@
+[
+  {
+    "model": "devices.BrandName",
+    "pk": 1,
+    "fields": {
+      "brand_name": "لنوو"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 2,
+    "fields": {
+      "brand_name": "Epson"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 3,
+    "fields": {
+      "brand_name": "نوکیا"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 4,
+    "fields": {
+      "brand_name": "سامسونگ"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 5,
+    "fields": {
+      "brand_name": "نامعلوم"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 1,
+    "fields": {
+      "device_name": "لپ تاپ"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 2,
+    "fields": {
+      "device_name": "شارژر"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 3,
+    "fields": {
+      "device_name": "چراغ"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 4,
+    "fields": {
+      "device_name": "سی تی اسکن"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 5,
+    "fields": {
+      "device_name": "ام آر آی"
+    }
+  },
+  {
+    "model": "devices.GroupName",
+    "pk": 1,
+    "fields": {
+      "group_name": "پرتوزا"
+    }
+  },
+  {
+    "model": "devices.GroupName",
+    "pk": 2,
+    "fields": {
+      "group_name": "غیر پرتوزا"
+    }
+  },
+  {
+    "model": "devices.GroupName",
+    "pk": 3,
+    "fields": {
+      "group_name": "نامعلوم"
+    }
+  },
+  {
+    "model": "hospital.Hospital",
+    "pk": 1,
+    "fields": {
+      "name": "بیمارستان خانواده ارتش",
+      "location": "تهران ، خیابان شریعتی ، روبروی خیابان بهار شیراز ، خیابان کاج ،",
+      "phone_number": "2177603076"
+    }
+  },
+  {
+    "model": "hospital.Hospital",
+    "pk": 2,
+    "fields": {
+      "name": "بیمارستان بعثت تهران",
+      "location": "شهر تهران - بزرگراه بسیج - سه راه تختی - خیابان هجرت",
+      "phone_number": "2139950"
+    }
+  },
+  {
+    "model": "hospital.Hospital",
+    "pk": 3,
+    "fields": {
+      "name": "بیمارستان آموزشی، پژوهشی و درمانی امام رضا (ع)",
+      "location": "تهران - خیابان فاطمی غربی- خیابان شهید اعتمادزاده شمالی - 501 ار",
+      "phone_number": "2186096350"
+    }
+  },
+  {
+    "model": "hospital.Hospital",
+    "pk": 4,
+    "fields": {
+      "name": "بیمارستان 505 ارتش تهران",
+      "location": "تهران - اتوبان ارتش - انتهای بلوار شهید مژدی(اوشان)",
+      "phone_number": "2122481805"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 1,
+    "fields": {
+      "model_name": "عقربه ای"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 2,
+    "fields": {
+      "model_name": "شارژی"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 3,
+    "fields": {
+      "model_name": "اتوماتیک"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 4,
+    "fields": {
+      "model_name": "دستی"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 5,
+    "fields": {
+      "model_name": "براق"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 6,
+    "fields": {
+      "model_name": "نا معلوم"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 1,
+    "fields": {
+      "status_name": "سالم و در حال استفاده"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 2,
+    "fields": {
+      "status_name": "خراب"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 3,
+    "fields": {
+      "status_name": "در دست تعمیر"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 4,
+    "fields": {
+      "status_name": "سالم و در انبار"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 5,
+    "fields": {
+      "status_name": "نا معلوم"
+    }
+  },
+  {
+    "model": "devices.Device",
+    "pk": 1,
+    "fields": {
+      "status_id": 1,
+      "name_id": 1,
+      "model_id": 1,
+      "group_id": 1,
+      "brand_id": 1,
+      "hospital_id": 1,
+      "regular_checks": 12,
+      "created_at": "2023-03-20 01:50:54",
+      "updated_at": "2023-03-20 01:50:54"
+    }
+  },
+  {
+    "model": "devices.Device",
+    "pk": 2,
+    "fields": {
+      "status_id": 2,
+      "name_id": 2,
+      "model_id": 3,
+      "group_id": 1,
+      "brand_id": 2,
+      "hospital_id": 2,
+      "regular_checks": 12,
+      "created_at": "2023-03-20 01:50:54",
+      "updated_at": "2023-03-20 01:50:54"
+    }
+  },
+  {
+    "model": "devices.Device",
+    "pk": 3,
+    "fields": {
+      "status_id": 2,
+      "name_id": 3,
+      "model_id": 1,
+      "group_id": 2,
+      "brand_id": 3,
+      "hospital_id": 1,
+      "regular_checks": 6,
+      "created_at": "2023-03-20 01:50:54",
+      "updated_at": "2023-03-20 01:50:54"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "ادمین",
+      "last_name": "ادمین",
+      "username": "admin",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": true,
+      "email": "admin@example.com",
+      "password": "pbkdf2_sha256$600000$EK9EmuiyXMRIOvkfqZjl7j$I+o4gAO+xegZqj36rCckYQvXf+MqKJUar5JGm2k2bqg="
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "first_name": "علی",
+      "last_name": "محمدی",
+      "username": "ali",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "email": "ali@example.com",
+      "password": "pbkdf2_sha256$600000$EK9EmuiyXMRIOvkfqZjl7j$I+o4gAO+xegZqj36rCckYQvXf+MqKJUar5JGm2k2bqg="
+    }
+  },
+  {
+    "model": "users.personnel",
+    "pk": 1,
+    "fields": {
+      "user_id": 2,
+      "hospital_id": 1
+    }
+  }
+]

@@ -1,5 +1,7 @@
 from django import forms
-from .models import Device, DeviceName, StatusName, BrandName, GroupName, ModelName, DeviceLog
+from jdatetime import datetime
+
+from devices.models import Device, DeviceName, StatusName, BrandName, GroupName, ModelName, DeviceLog
 
 
 class CreateForm(forms.Form):
@@ -114,6 +116,29 @@ class CreateForm(forms.Form):
             }
         )
     )
+    next_check_at = forms.CharField(
+        label="زمان سرویس بعدی",
+        required=False,
+        widget=forms.TextInput(
+                    attrs={
+                        "placeholder": "زمان سرویس بعدی",
+                        "class": "form-control date-picker"
+                    }
+                )
+        )
+    next_check_at_en = forms.CharField(
+        required=False
+    )
+    # next_check_at = forms.DateTimeInput(
+    #     label="زمان سرویس بعدی",
+    #     required=False,
+    #     widget=forms.DateTimeField(
+    #         attrs={
+    #             "placeholder": "زمان سرویس بعدی",
+    #             "class": "form-control"
+    #         }
+    #     )
+    # )
     description = forms.CharField(
         label="توضیحات",
         required=False,
@@ -128,7 +153,6 @@ class CreateForm(forms.Form):
 
 
 class LogForm(forms.Form):
-
     status = forms.ModelChoiceField(
         label='وضعیت دستگاه',
         queryset=StatusName.objects.filter(),
@@ -142,27 +166,27 @@ class LogForm(forms.Form):
             }
         )
     )
-    
+
     phone_num = forms.IntegerField(
         label='شماره تماس',
         required=False,
         widget=forms.NumberInput(
-           attrs={
-               "placeholder": "لطفا شماره تماس را وارد کنید",
-               "class": "form-control",
-           }
+            attrs={
+                "placeholder": "لطفا شماره تماس را وارد کنید",
+                "class": "form-control",
+            }
         )
     )
-    
+
     address = forms.CharField(
         label='آدرس',
         required=False,
         widget=forms.TextInput(
-           attrs={
-               "placeholder": "لطفا آدرس را وارد کنید",
-               "class": "form-control",
-               "rows": "2",
-           }
+            attrs={
+                "placeholder": "لطفا آدرس را وارد کنید",
+                "class": "form-control",
+                "rows": "2",
+            }
         )
     )
 
@@ -170,10 +194,10 @@ class LogForm(forms.Form):
         label='نام تحویل گیرنده',
         required=False,
         widget=forms.TextInput(
-           attrs={
-               "placeholder": "لطفا نام را وارد کنید",
-               "class": "form-control",
-           }
+            attrs={
+                "placeholder": "لطفا نام را وارد کنید",
+                "class": "form-control",
+            }
         )
     )
 

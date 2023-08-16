@@ -1,0 +1,23 @@
+[
+  {
+    "model": "devices.GroupName",
+    "pk": 1,
+    "fields": {
+      "group_name": "پرتوزا"
+    }
+  },
+  {
+    "model": "devices.GroupName",
+    "pk": 2,
+    "fields": {
+      "group_name": "غیر پرتوزا"
+    }
+  },
+  {
+    "model": "devices.GroupName",
+    "pk": 3,
+    "fields": {
+      "group_name": "نامعلوم"
+    }
+  }
+]

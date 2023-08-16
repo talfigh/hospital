@@ -1,0 +1,37 @@
+[
+  {
+    "model": "devices.StatusName",
+    "pk": 1,
+    "fields": {
+      "status_name": "سالم و در حال استفاده"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 2,
+    "fields": {
+      "status_name": "خراب"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 3,
+    "fields": {
+      "status_name": "در دست تعمیر"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 4,
+    "fields": {
+      "status_name": "سالم و در انبار"
+    }
+  },
+  {
+    "model": "devices.StatusName",
+    "pk": 5,
+    "fields": {
+      "status_name": "نا معلوم"
+    }
+  }
+]

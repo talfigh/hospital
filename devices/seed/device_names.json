@@ -1,0 +1,37 @@
+[
+  {
+    "model": "devices.DeviceName",
+    "pk": 1,
+    "fields": {
+      "device_name": "لپ تاپ"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 2,
+    "fields": {
+      "device_name": "شارژر"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 3,
+    "fields": {
+      "device_name": "چراغ"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 4,
+    "fields": {
+      "device_name": "سی تی اسکن"
+    }
+  },
+  {
+    "model": "devices.DeviceName",
+    "pk": 5,
+    "fields": {
+      "device_name": "ام آر آی"
+    }
+  }
+]

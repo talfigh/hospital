@@ -10,8 +10,7 @@
         <div class="animated fadeIn">
             <div class="card">
                 <div class="card-header">
-                    لیست دستگاه ها
-                    <a class="btn btn-success float-left" href="/devices/create">ایجاد دستگاه جدید</a>
+                    دستگاههای در انتطار سرویس
                 </div>
                 <div class="card-body">
                     <div class="col-md-12">
@@ -31,7 +30,6 @@
                                 <th>شرکت سازنده</th>
                                 <th>تاریخ ایجاد</th>
                                 <th>زمان دوره سرویس</th>
-                                <th>عملیات</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,23 +42,6 @@
                                     <td>{{ device.brand }}</td>
                                     <td class="jdate">{{ device.created_at|date_string_to_jalali }}</td>
                                     <td class="jdate">{{ device.next_check_at|date_string_to_jalali }}</td>
-                                    {% comment %}<td class="jdate">{{ drug.created_at|date_string_to_jalali }}</td>
-                                    <td class="jdate">{{ drug.updated_at|date_string_to_jalali }}</td>
-                                    <td class="list-activation" data-value="{{ drug.is_active }}" data-active="{{ drug.id }}">{{ drug.is_active|show_activation }}</td>
-                                    {% endcomment %}
-                                    <td width="95px">
-                                        <div role="group">
-                                            <button id="btnGroupDrop1" type="button"
-                                                    class="btn btn-primary  btn-sm dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                عملیات
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                <a class="dropdown-item" href="/devices/edit/{{ device.id }}">ویرایش</a>
-                                                {% comment %}<a style="cursor: pointer" class="dropdown-item list-active" data-url="/device/active" data-target="{{ drug.id }}">فعال/غیرفعال کردن</a>{% endcomment %}
-                                            </div>
-                                        </div>
-                                    </td>
                                 </tr>
 
                             {% endfor %}

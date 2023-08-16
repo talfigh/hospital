@@ -1,0 +1,44 @@
+[
+  {
+    "model": "devices.ModelName",
+    "pk": 1,
+    "fields": {
+      "model_name": "عقربه ای"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 2,
+    "fields": {
+      "model_name": "شارژی"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 3,
+    "fields": {
+      "model_name": "اتوماتیک"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 4,
+    "fields": {
+      "model_name": "دستی"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 5,
+    "fields": {
+      "model_name": "براق"
+    }
+  },
+  {
+    "model": "devices.ModelName",
+    "pk": 6,
+    "fields": {
+      "model_name": "نا معلوم"
+    }
+  }
+]

@@ -17,7 +17,7 @@
     <div class="container-fluid col-md-12">
         <div class="animated fadeIn">
             <div class="card">
-                <form method="post" data-parsley-validate action="{% url 'devices:create' %}">
+                <form method="post" data-parsley-validate action="/devices/edit/{{ device_id }}">
                     <div class="card-header">
                         ایجاد دستگاه جدید
                     </div>

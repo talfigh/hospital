@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.template.defaulttags import url
 from django.urls import path, include
+
+from devices import views
 from devices.views import index
 
 from hospital.forms import CustomAuthenticationForm
@@ -24,9 +26,9 @@ from users.views import logout_view
 
 app_name = "hospital"
 urlpatterns = [
-    path("",index),
+    path("", views.wait_to_check, name="wait_to_check"),
     path("admin/", admin.site.urls),
-    path("devices/",include("devices.urls")),
+    path("devices/", include("devices.urls")),
     path("users/", include("users.urls")),
 
     path('accounts/login/', auth_views.LoginView.as_view(authentication_form=CustomAuthenticationForm), name='login'),
@@ -36,7 +38,8 @@ urlpatterns = [
 
     path('accounts/password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(),
+         name='password_reset_confirm'),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('captcha/', include('captcha.urls'))
 ]

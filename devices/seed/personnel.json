@@ -1,0 +1,10 @@
+[
+  {
+    "model": "users.personnel",
+    "pk": 1,
+    "fields": {
+      "user_id": 2,
+      "hospital_id": 1
+    }
+  }
+]

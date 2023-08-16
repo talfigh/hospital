@@ -1,0 +1,37 @@
+[
+  {
+    "model": "devices.BrandName",
+    "pk": 1,
+    "fields": {
+      "brand_name": "لنوو"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 2,
+    "fields": {
+      "brand_name": "Epson"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 3,
+    "fields": {
+      "brand_name": "نوکیا"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 4,
+    "fields": {
+      "brand_name": "سامسونگ"
+    }
+  },
+  {
+    "model": "devices.BrandName",
+    "pk": 5,
+    "fields": {
+      "brand_name": "نامعلوم"
+    }
+  }
+]

@@ -9,7 +9,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Hossein Bagherpour">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <link rel="shortcut icon" href="{% static 'hospital/img/favicon.png' %}" type="image/vnd.microsoft.icon" />
+    <link rel="shortcut icon" href="{% static 'hospital/img/favicon.png' %}" type="image/vnd.microsoft.icon"/>
     <title>بیمارستان های ارتش جمهوری اسلامی ایران</title>
     <!-- Icons-->
 
@@ -27,13 +27,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/modules/select2/select2.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/modules/select2/select2-bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/vendors/pace-progress/css/pace.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'hospital/modules/table-expandable/bootstrap-table-expandable.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'hospital/modules/datepicker/bootstrap-datepicker.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'hospital/modules/table-expandable/bootstrap-table-expandable.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'hospital/modules/datepicker/bootstrap-datepicker.min.css' %}">
     <link rel="stylesheet" type="text/css"
           href="{% static 'hospital/modules/datatable/dataTables.bootstrap4.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/modules/toaster/toastr.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'hospital/modules/persian-date-picker/jquery.md.bootstrap.datetimepicker.style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'hospital/css/rtl.css' %}">
     <script src="{% static 'hospital/modules/jquery/dist/jquery.min.js' %}"></script>
+
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 <header class="app-header navbar">
@@ -52,14 +57,10 @@
 
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item d-md-down-none">
-            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+               aria-expanded="false">
                 <i class="icon-bell"></i>
-                <span class="badge badge-pill badge-danger">5</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-                <a class="dropdown-item" href="#">
-                    <i class="icon-user-follow text-success"></i> ۵ کاربر جدید در سامانه ثبت نام کرده است</a>
-            </div>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -85,18 +86,26 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-title">بخش ها</li>
-                <li class="nav-item nav-dropdown {% if request.path == "/" or request.path == "/devices" or request.path == "/devices/create/" %} open {% endif %}">
+                <li class="nav-item nav-dropdown open {% if request.path == "/" or request.path == "/devices" or request.path == "/devices/create/" %} open {% endif %}">
                     <a href="#" class="nav-link nav-dropdown-toggle">
                         <i class="nav-icon icon-menu"></i>دستگاه ها
                     </a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == "/" or request.path == "/devices" %} active {% endif %}" href="/">
+                            <a class="nav-link {% if request.path == "/" or request.path == "/wait/to/check" %} active {% endif %}"
+                               href="/">
+                                <i class="nav-icon"></i>در انتطار چک دوره ای
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == "/devices/" %} active {% endif %}"
+                               href="/devices">
                                 <i class="nav-icon"></i>لیست دستگاه ها
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == "/devices/create/" %} active {% endif %}" href="/devices/create">
+                            <a class="nav-link {% if request.path == "/devices/create/" %} active {% endif %}"
+                               href="/devices/create">
                                 <i class="nav-icon"></i>ایجاد دستگاه جدید
                             </a>
                         </li>
@@ -128,8 +137,8 @@
 <script src="{% static 'hospital/modules/table-right-click/table-right-click.js' %}"></script>
 <script src="{% static 'hospital/modules/table-expandable/bootstrap-table-expandable.js' %}"></script>
 <script src="{% static 'hospital/modules/datepicker/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'hospital/modules/persian-date-picker/jquery.md.bootstrap.datetimepicker.js' %}"></script>
 <script src="{% static 'hospital/modules/toaster/toastr.min.js' %}"></script>
-
 
 
 <!-- Plugins and scripts required by this view-->
@@ -137,13 +146,20 @@
 <script src="{% static 'hospital/modules/coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js' %}"></script>
 <script src="{% static 'hospital/js/main.js' %}"></script>
 <script>
-    $(function(){
+    $(function () {
+        {#$('#id_next_check_at').MdPersianDateTimePicker();#}
+        $('#id_next_check_at').MdPersianDateTimePicker({
+            targetTextSelector: '#id_next_check_at',
+            targetDateSelector: '#id_next_check_at_en',
+            dateFormat: "yyyy-MM-dd",
+            textFormat: "yyyy-MM-dd"
+        });
         $(".data-tables").DataTable({
             "language": {
                 "url": "/static/hospital/modules/datatable/i18n/persian.json"
             }
         });
-        $("table .list-active").on("click", function(e){
+        $("table .list-active").on("click", function (e) {
             e.preventDefault();
             let id = $(this).data("target");
             let url = $(this).data("url");
@@ -153,19 +169,19 @@
                     id: id
                 },
                 method: 'post',
-                success: function(data){
-                    if(data.success){
+                success: function (data) {
+                    if (data.success) {
                         toastr.success(data.message);
                         let obj = $("table .list-activation[data-active=" + id + "]");
                         let value = obj.data("value");
-                        if(value === "True"){
+                        if (value === "True") {
                             obj.data("value", "False");
                             obj.text("غیر فعال")
-                        }else{
+                        } else {
                             obj.data("value", "True");
                             obj.text("فعال")
                         }
-                    }else{
+                    } else {
                         toastr.error(data.message);
                     }
                 }

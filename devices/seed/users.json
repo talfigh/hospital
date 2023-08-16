@@ -1,0 +1,30 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "ادمین",
+      "last_name": "ادمین",
+      "username": "admin",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": true,
+      "email": "admin@example.com",
+      "password": "pbkdf2_sha256$600000$EK9EmuiyXMRIOvkfqZjl7j$I+o4gAO+xegZqj36rCckYQvXf+MqKJUar5JGm2k2bqg="
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "first_name": "علی",
+      "last_name": "محمدی",
+      "username": "ali",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "email": "ali@example.com",
+      "password": "pbkdf2_sha256$600000$EK9EmuiyXMRIOvkfqZjl7j$I+o4gAO+xegZqj36rCckYQvXf+MqKJUar5JGm2k2bqg="
+    }
+  }
+]
